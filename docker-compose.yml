@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: .
+      args:
+        - RUBY_VERSION=2.7.1
+        - BUNDLE_JOBS=15
+        - BUNDLE_RETRY=2
+        - NODE_VERSION=12
+        - INSTALL_PG_CLIENT=true
+        - UID=500
+        - GID=500
+    environment:
+      - DATABASE_USER=postgres
+      - DATABASE_HOST=postgres
+    command: bundle exec rails server -p 3000 -b '0.0.0.0'
+    entrypoint: docker/ruby/entrypoint.sh
+    volumes:
+      - .:/app:cached
+      - gems:/gems
+      - rails_cache:/app/tmp/cache
+    ports: 
+      - "3000:3000"
+    user: ruby
+    tty: true
+    stdin_open: true
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:12
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  gems:
+  postgres:
+  rails_cache:
