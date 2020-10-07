@@ -18,7 +18,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: docker_test
           POSTGRES_PASSWORD: ""
-        ports:['5432:5432']
+        ports: ['5432:5432']
     
 
     steps:
