@@ -51,8 +51,11 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
+          DATABASE_HOST: localhost
           POSTGRES_USER: postgres
-          DATABASE_HOST: postgres
+          POSTGRES_DB: docker_test
+          WITH_COVERAGE: true
+          DISABLE_SPRING: 1
         run: |
           bin/rails db:setup
 
