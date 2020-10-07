@@ -9,7 +9,6 @@ on:
 
 jobs:
   test:
-    name: Test
     runs-on: ubuntu-latest
     services:
       db:
@@ -37,6 +36,7 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
+
       - name: Install gems
         run: |
           bundle config path vendor/bundle
