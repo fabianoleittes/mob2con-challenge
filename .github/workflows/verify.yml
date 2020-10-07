@@ -37,7 +37,6 @@ jobs:
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-
         - name: Install gems
           run: |
             bundle config path vendor/bundle
