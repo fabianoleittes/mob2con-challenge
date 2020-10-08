@@ -50,6 +50,8 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         run: |
           bundler exec rails db:create
           bundler exec rails db:migrate
