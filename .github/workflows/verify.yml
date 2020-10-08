@@ -53,8 +53,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         run: |
-          bundler exec rails db:create
-          bundler exec rails db:migrate
+          bin/rails db:setup
 
       - name: Run tests
-        run: bundler exec rspec
+        run: bundle exec rspec
