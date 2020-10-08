@@ -1,5 +1,7 @@
 # README
 
+![Tests & Linters](https://github.com/fabianoleittes/visitors-api/workflows/Tests%20&%20Linters/badge.svg?branch=main)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
