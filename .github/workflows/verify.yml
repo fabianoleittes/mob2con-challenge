@@ -57,6 +57,7 @@ jobs:
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
         run: |
+          cp config/database.ci.yml config/database.yml
           bin/rails db:setup
 
       - name: Run tests
