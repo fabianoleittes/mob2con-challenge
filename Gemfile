@@ -9,10 +9,14 @@ gem 'pg',                     '>= 0.18', '< 2.0'
 gem 'puma',                   '~> 4.1'
 gem 'rails',                  '~> 6.0.3', '>= 6.0.3.3'
 <<<<<<< HEAD
+<<<<<<< HEAD
 gem 'bcrypt',                 '~> 3.1.7'
 =======
 # gem 'bcrypt',               '~> 3.1.7'
 >>>>>>> a2b0d70... chore: add factory bot and shoulda matchers config
+=======
+gem 'bcrypt',                 '~> 3.1.7'
+>>>>>>> 37d8cf7... chore: add bcrypt and rack-cors gem
 
 # Use Active Storage variant
 # gem 'image_processing',     '~> 1.2'
