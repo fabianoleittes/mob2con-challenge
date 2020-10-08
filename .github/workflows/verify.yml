@@ -57,4 +57,4 @@ jobs:
           bundler exec rails db:migrate
 
       - name: Run tests
-        run: bin/rspec
+        run: bundler exec rspec
