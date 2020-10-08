@@ -57,6 +57,7 @@ jobs:
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
           POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
+          POSTGRES_PASSWORD: postgres
         run: |
           cp config/database.ci.yml config/database.yml
           bin/rails db:setup
