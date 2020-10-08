@@ -16,7 +16,7 @@ jobs:
         image: postgres:12
         env:
           POSTGRES_USER: postgres
-          POSTGRES_DB: docker_test
+          POSTGRES_PASSWORD: postgres
         ports: ['5432:5432']
     
 
@@ -49,11 +49,10 @@ jobs:
     
       - name: Setup test database
         env:
-          PGHOST: localhost
-          PGUSER: postgres
           RAILS_ENV: test
         run: |
-          bin/rails db:setup
+          bundler exec rails db:create
+          bundler exec rails db:migrate
 
       - name: Run tests
         run: bin/rspec
