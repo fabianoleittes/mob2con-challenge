@@ -17,7 +17,6 @@ jobs:
         env:
           POSTGRES_USER: postgres
           POSTGRES_DB: docker_test
-          POSTGRES_PASSWORD: postgres
         ports: ['5432:5432']
     
 
@@ -56,7 +55,6 @@ jobs:
           POSTGRES_DB: docker_test
           WITH_COVERAGE: true
           DISABLE_SPRING: 1
-          POSTGRES_PASSWORD: postgres
         run: |
           bin/rails db:setup
 
