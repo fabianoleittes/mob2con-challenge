@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+require 'api_version'
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  scope defaults: { format: :json }, path: '/', constraints: { subdomain: 'api' } do
+    namespace :v1, constraints: ApiVersion.new(version: 'v1', default: true) do
+    end
+  end
 end
