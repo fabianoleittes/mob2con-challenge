@@ -14,6 +14,7 @@ gem 'jwt',                    '~> 2.2', '>= 2.2.2'
 # gem 'image_processing',     '~> 1.2'
 
 gem 'rack-cors'
+gem 'cpf_cnpj', '~> 0.5.0'
 
 group :development, :test do
   gem 'awesome_print',        '~> 1.8'
