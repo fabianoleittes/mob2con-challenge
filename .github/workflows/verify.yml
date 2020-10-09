@@ -48,11 +48,6 @@ jobs:
           node-version: 10.13.0
     
       - name: Setup test database
-        env:
-          RAILS_ENV: test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: ''
-        ports: ['5432:5432']
         run: |
           bin/rails db:setup
 
