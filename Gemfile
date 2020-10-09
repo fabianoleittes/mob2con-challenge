@@ -9,7 +9,7 @@ gem 'pg',                     '>= 0.18', '< 2.0'
 gem 'puma',                   '~> 4.1'
 gem 'rails',                  '~> 6.0.3', '>= 6.0.3.3'
 gem 'bcrypt',                 '~> 3.1.7'
-
+gem 'jwt',                    '~> 2.2', '>= 2.2.2'
 # Use Active Storage variant
 # gem 'image_processing',     '~> 1.2'
 
