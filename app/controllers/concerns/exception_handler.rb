@@ -5,6 +5,8 @@ module ExceptionHandler
   class AuthenticatorError < StandardError; end
   class MissingToken < StandardError; end
   class InvalidToken < StandardError; end
+  class ForbiddenAccess < StandardError; end
+  class NotPermittedException < StandardError; end
 
   included do
     rescue_from ActiveRecord::RecordInvalid, with: :four_twenty_two
@@ -15,6 +17,11 @@ module ExceptionHandler
     rescue_from ActiveRecord::RecordNotFound do |e|
       json_response({ message: e.message }, :not_found)
     end
+
+    rescue_from ExceptionHandler::NotPermittedException,
+                with: lambda {
+                        json_response({ error: 'Not Permitted' }, :forbidden)
+                      }
   end
 
   private
