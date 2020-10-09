@@ -16,6 +16,7 @@ jobs:
         image: postgres:12
         env:
           POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         ports: ['5432:5432']
     
 
@@ -47,6 +48,10 @@ jobs:
           node-version: 10.13.0
     
       - name: Setup test database
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         run: |
           bin/rails db:setup
 
