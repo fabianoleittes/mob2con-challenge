@@ -119,6 +119,30 @@ RSpec.describe 'RetailChain API', type: :request do
     end
   end
 
+  describe 'DELETE /v1/retail_chains/:id' do
+    context 'when record not exists' do
+      it 'returns a response 404' do
+        delete(
+          '/v1/retail_chains/42',
+          params: {},
+          headers: headers
+        )
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+
+    context 'when record exists' do
+      it 'returns a response 204' do
+        delete(
+          "/v1/retail_chains/#{retail_chain.id}",
+          params: {},
+          headers: headers
+        )
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+  end
+
   def retail_chains_params
     attributes_for(:retail_chain)
   end

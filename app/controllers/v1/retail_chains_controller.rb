@@ -1,7 +1,7 @@
 module V1
   class RetailChainsController < BaseController
     before_action :authorize_request, :require_be_admin
-    before_action :find_retail_chain, only: %i[show update]
+    before_action :find_retail_chain, only: %i[show update destroy]
 
     def index
       json_response(RetailChain.all)
@@ -26,6 +26,14 @@ module V1
         json_response(@find_retail_chain, :ok)
       else
         json_response(@find_retail_chain.errors, :unprocessable_entity)
+      end
+    end
+    
+    def destroy
+      if @find_retail_chain.destroy
+        render nothing: true, status: :no_content
+      else
+        json_response(@find_retail_chain, :not_found)
       end
     end
 

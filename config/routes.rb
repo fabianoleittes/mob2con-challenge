@@ -4,7 +4,7 @@ require 'api_version'
 Rails.application.routes.draw do
   scope defaults: { format: :json }, path: '/', constraints: { subdomain: 'api' } do
     namespace :v1, constraints: ApiVersion.new(version: 'v1', default: true) do
-      resources :retail_chains, only: %i[create index show update]
+      resources :retail_chains, only: %i[create index show update destroy]
       post 'signup', to: 'users#create'
       post 'auth/login', to: 'auth#authenticate'
     end
