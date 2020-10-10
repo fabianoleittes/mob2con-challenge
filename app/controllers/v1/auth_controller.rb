@@ -2,8 +2,6 @@
 
 module V1
   class AuthController < BaseController
-    skip_before_action :authorize_request, only: :authenticate
-
     def authenticate
       auth_token = Authenticator.call(
         auth_params[:email],
