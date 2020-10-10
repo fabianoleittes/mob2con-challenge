@@ -2,6 +2,10 @@ module V1
   class RetailChainsController < BaseController
     before_action :authorize_request, :require_be_admin
 
+    def index
+      json_response(RetailChain.all)
+    end
+
     def create
       @retail_chain = RetailChain.new(retail_chains_params)
 
