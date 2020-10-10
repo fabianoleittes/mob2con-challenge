@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'RetailChain API', type: :request do
   let!(:user) { create(:user, :be_admin) }
+  let(:retail_chain) { create(:retail_chain) }
 
   describe 'POST /v1/retail_chains' do
     context 'with valid data' do
@@ -53,6 +54,34 @@ RSpec.describe 'RetailChain API', type: :request do
 
       it 'returns all retail_chains' do
         expect(json.size).to eq(5)
+      end
+    end
+  end
+
+  describe 'GET /v1/retail_chains/:id' do
+    before do
+      get(
+        "/v1/retail_chains/#{retail_chain.id}",
+        params: {},
+        headers: headers
+      )
+    end
+
+    context 'when retail_chains exists' do
+      it 'returns status code 200' do
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'when the record does not exist' do
+      before { get "/v1/retail_chains/#{42}", params: {}, headers: headers }
+
+      it 'returns status code 404' do
+        expect(response).to have_http_status(:not_found)
+      end
+
+      it 'returns a not found message' do
+        expect(response.body).to match(/Couldn't find RetailChain/)
       end
     end
   end

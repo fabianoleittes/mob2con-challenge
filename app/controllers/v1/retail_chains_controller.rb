@@ -6,6 +6,11 @@ module V1
       json_response(RetailChain.all)
     end
 
+    def show
+      @retail_chain = RetailChain.find(params[:id])
+      json_response(@retail_chain)
+    end
+
     def create
       @retail_chain = RetailChain.new(retail_chains_params)
 
