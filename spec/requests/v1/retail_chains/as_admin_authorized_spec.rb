@@ -67,7 +67,7 @@ RSpec.describe 'RetailChain API', type: :request do
       )
     end
 
-    context 'when retail_chains exists' do
+    context 'when the record exists' do
       it 'returns status code 200' do
         expect(response).to have_http_status(:ok)
       end
@@ -82,6 +82,39 @@ RSpec.describe 'RetailChain API', type: :request do
 
       it 'returns a not found message' do
         expect(response.body).to match(/Couldn't find RetailChain/)
+      end
+    end
+  end
+
+  describe 'PATCH /v1/retail_chains/:id' do
+    context 'with valid data' do
+      it 'updates the specified retail_chain' do
+        retail_chains_params = {
+          retail_chains: {
+            name: 'Mob2ConLabs'
+          }
+        }.to_json
+
+        patch(
+          "/v1/retail_chains/#{retail_chain.id}",
+          params: retail_chains_params,
+          headers: headers
+        )
+
+        expect(response).to have_http_status(:ok)
+      end
+    end
+
+    context 'with invalid data' do
+      let!(:retail_chains_params) { build(:retail_chain, name: '') }
+
+      it 'returns error code' do
+        patch(
+          "/v1/retail_chains/#{retail_chain.id}",
+          params: retail_chains_params.to_json,
+          headers: headers
+        )
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
