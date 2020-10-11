@@ -74,7 +74,7 @@ RSpec.describe 'RetailChain API', type: :request do
     end
 
     context 'when the record does not exist' do
-      before { get "/v1/admin/retail_chains/42", params: {}, headers: headers }
+      before { get '/v1/admin/retail_chains/42', params: {}, headers: headers }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(:not_found)
