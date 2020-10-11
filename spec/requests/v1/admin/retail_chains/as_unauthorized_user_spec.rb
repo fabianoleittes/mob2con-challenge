@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'RetailChain API', type: :request do
-  describe 'POST /v1/retail_chains' do
+  describe 'POST /v1/admin/retail_chains' do
     context 'as an unauthorized user' do
       before do
         post(
-          '/v1/retail_chains',
+          '/v1/admin/retail_chains',
           params: retail_chains_params.to_json,
           headers: headers
         )

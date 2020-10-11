@@ -6,11 +6,11 @@ RSpec.describe 'RetailChain API', type: :request do
   let!(:user) { create(:user, :be_admin) }
   let(:retail_chain) { create(:retail_chain) }
 
-  describe 'POST /v1/retail_chains' do
+  describe 'POST /v1/admin/retail_chains' do
     context 'with valid data' do
       before do
         post(
-          '/v1/retail_chains',
+          '/v1/admin/retail_chains',
           params: retail_chains_params.to_json,
           headers: headers
         )
@@ -24,7 +24,7 @@ RSpec.describe 'RetailChain API', type: :request do
     context 'with invalid data' do
       before do
         post(
-          '/v1/retail_chains',
+          '/v1/admin/retail_chains',
           params: {},
           headers: headers
         )
@@ -36,12 +36,12 @@ RSpec.describe 'RetailChain API', type: :request do
     end
   end
 
-  describe 'GET /v1/retail_chains' do
+  describe 'GET /v1/admin/retail_chains' do
     let!(:retail_chains) { create_list(:retail_chain, 5) }
 
     before do
       get(
-        '/v1/retail_chains',
+        '/v1/admin/retail_chains',
         params: {},
         headers: headers
       )
@@ -58,10 +58,10 @@ RSpec.describe 'RetailChain API', type: :request do
     end
   end
 
-  describe 'GET /v1/retail_chains/:id' do
+  describe 'GET /v1/admin/retail_chains/:id' do
     before do
       get(
-        "/v1/retail_chains/#{retail_chain.id}",
+        "/v1/admin/retail_chains/#{retail_chain.id}",
         params: {},
         headers: headers
       )
@@ -74,7 +74,7 @@ RSpec.describe 'RetailChain API', type: :request do
     end
 
     context 'when the record does not exist' do
-      before { get "/v1/retail_chains/#{42}", params: {}, headers: headers }
+      before { get "/v1/admin/retail_chains/#{42}", params: {}, headers: headers }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(:not_found)
@@ -86,7 +86,7 @@ RSpec.describe 'RetailChain API', type: :request do
     end
   end
 
-  describe 'PATCH /v1/retail_chains/:id' do
+  describe 'PATCH /v1/admin/retail_chains/:id' do
     context 'with valid data' do
       it 'updates the specified retail_chain' do
         retail_chains_params = {
@@ -96,7 +96,7 @@ RSpec.describe 'RetailChain API', type: :request do
         }.to_json
 
         patch(
-          "/v1/retail_chains/#{retail_chain.id}",
+          "/v1/admin/retail_chains/#{retail_chain.id}",
           params: retail_chains_params,
           headers: headers
         )
@@ -110,7 +110,7 @@ RSpec.describe 'RetailChain API', type: :request do
 
       it 'returns error code' do
         patch(
-          "/v1/retail_chains/#{retail_chain.id}",
+          "/v1/admin/retail_chains/#{retail_chain.id}",
           params: retail_chains_params.to_json,
           headers: headers
         )
@@ -119,11 +119,11 @@ RSpec.describe 'RetailChain API', type: :request do
     end
   end
 
-  describe 'DELETE /v1/retail_chains/:id' do
+  describe 'DELETE /v1/admin/retail_chains/:id' do
     context 'when record not exists' do
       it 'returns a response 404' do
         delete(
-          '/v1/retail_chains/42',
+          '/v1/admin/retail_chains/42',
           params: {},
           headers: headers
         )
@@ -134,7 +134,7 @@ RSpec.describe 'RetailChain API', type: :request do
     context 'when record exists' do
       it 'returns a response 204' do
         delete(
-          "/v1/retail_chains/#{retail_chain.id}",
+          "/v1/admin/retail_chains/#{retail_chain.id}",
           params: {},
           headers: headers
         )
