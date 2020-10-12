@@ -6,7 +6,8 @@ module V1
       before_action :find_visitor, only: %i[show update destroy]
 
       def index
-        json_response(Visitor.all)
+        @visitors = Visitor.all.search_by_name(params)
+        json_response(@visitors)
       end
 
       def show
