@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_004658) do
+ActiveRecord::Schema.define(version: 2020_10_12_044751) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "citext"
   enable_extension "plpgsql"
 
   create_table "retail_chains", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.citext "name", default: "", null: false
     t.string "cnpj", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_10_12_004658) do
   end
 
   create_table "visitors", force: :cascade do |t|
-    t.string "name", default: "", null: false
+    t.citext "name", default: "", null: false
     t.bigint "retail_chain_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
