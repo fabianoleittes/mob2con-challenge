@@ -6,7 +6,8 @@ module V1
       before_action :find_retail_chain, only: %i[show update destroy]
 
       def index
-        json_response(RetailChain.all)
+        @retail_chains = RetailChain.all.search_by_name(params)
+        json_response(@retail_chains)
       end
 
       def show
