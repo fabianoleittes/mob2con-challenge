@@ -54,7 +54,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
         run: |
           cp env.sample .env.test
-          bin/rails db:setup
+          bundle exec rails db:setup
 
       - name: Run tests
         run: bundle exec rspec
