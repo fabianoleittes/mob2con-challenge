@@ -4,13 +4,12 @@
 
 
 <h4 align="center"> 
-	🚧  Mob2ConLabs API ♻️ em construção 🚀 🚧
+	🚧  Mob2ConLabs API em construção 🚀 🚧
 </h4>
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-layout">Layout</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-tecnologias">Tecnologias</a>
  • 
@@ -21,7 +20,7 @@
 
 ## 💻 Sobre o projeto
 
-♻️ Mob2ConLabs - é um API Restful feita como teste para a vaga de backend na Mob2ConLabs.
+Mob2ConLabs - é um API Restful feita como teste para a vaga de backend na Mob2ConLabs.
 
 ---
 
@@ -41,7 +40,7 @@
 
 - [x] Usuário da rede pode fazer login
 
-- [ ] Usuário da rede pode registrar entradas e saidas de visitantes.
+- [x] Usuário da rede pode registrar entradas e saidas de visitantes.
 
 - [ ] Usuário externo, não autenticado, pode ver o número total de redes e seus visitantes.
 
@@ -55,8 +54,7 @@ Este projeto é uma API Restful:
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[docker](https://docs.docker.com/install/)
-[docker compose](https://docs.docker.com/compose/install/)
+[docker](https://docs.docker.com/install/) e [docker compose](https://docs.docker.com/compose/install/)
  
 #### 🎲 Rodando a API (servidor)
 

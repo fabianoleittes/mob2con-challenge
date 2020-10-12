@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_12_044751) do
+ActiveRecord::Schema.define(version: 2020_10_12_191848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_10_12_044751) do
     t.index ["retail_chain_id"], name: "index_visitors_on_retail_chain_id"
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.datetime "entry_date", null: false
+    t.datetime "exit_date", null: false
+    t.bigint "visitor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["visitor_id"], name: "index_visits_on_visitor_id"
+  end
+
   add_foreign_key "users", "retail_chains"
   add_foreign_key "visitors", "retail_chains"
+  add_foreign_key "visits", "visitors"
 end

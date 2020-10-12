@@ -9,6 +9,9 @@ Rails.application.routes.draw do
           resources :visitors, only: %i[create index show update destroy]
         end
       end
+      resources :visitors, only: %i[] do
+        resources :visits, only: %i[create update]
+      end
       post 'signup', to: 'users#create'
       post 'auth/login', to: 'auth#authenticate'
     end
