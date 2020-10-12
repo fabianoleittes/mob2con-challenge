@@ -76,7 +76,11 @@ $ docker-compose run up
 
 # O servidor inciará na porta:3000 - acesse http://api.dev.local:3000 
 
+
 ```
+<p align="center">
+  <a href="https://insomnia.rest/run/?label=Mob2ConLabs%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fvisitors-api%2Freadme%2FInsomnia.json%3Ftoken%3DAACEGMEPFPUEI3IOGM4WMXC7QSNOO" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
 
 ---
 
