@@ -42,11 +42,11 @@ Mob2ConLabs - é um API Restful feita como teste para a vaga de backend na Mob2C
 
 - [x] O administrador pode gerenciar visiantes (crud) de cada rede para que mais pessoas utilizem o sistema.
 
-- [ ] O administrador pode enviar fotos dos visitantes para identificá-los.
+- [x] O administrador pode enviar fotos dos visitantes para identificá-los.
 
 - [x] O administrador pode pesquisar visitantes por nome para ter acesso as informações.
 
-- [ ] Usuário da rede pode se deslogar no sistema.
+- [x] Usuário da rede pode se deslogar no sistema.
 
 - [x] Usuário da rede pode fazer login
 
