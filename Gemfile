@@ -12,7 +12,7 @@ gem 'bcrypt',                 '~> 3.1.7'
 gem 'jwt',                    '~> 2.2', '>= 2.2.2'
 # Use Active Storage variant
 # gem 'image_processing',     '~> 1.2'
-
+gem 'rack-attack',            '~> 6.3', '>= 6.3.1'
 gem 'rack-cors'
 gem 'cpf_cnpj', '~> 0.5.0'
 
