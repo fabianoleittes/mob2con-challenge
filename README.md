@@ -1,6 +1,6 @@
 # Mob2ConLabs API
 
-![Tests & Linters](https://github.com/fabianoleittes/visitors-api/workflows/Tests%20&%20Linters/badge.svg?branch=main)
+![Tests & Linters](https://github.com/fabianoleittes/visitors-api/workflows/Tests%20&%20Linters/badge.svg?branch=main) [![Maintainability](https://api.codeclimate.com/v1/badges/e787fbfd8c282e658c2a/maintainability)](https://codeclimate.com/github/fabianoleittes/visitors-api/maintainability)
 
 
 <h4 align="center"> 
