@@ -129,7 +129,7 @@ $ docker-compose run --rm api bundle exec rspec
 | /v1/retail_chains/summaries | GET | Retail Chain summaries |
 
 <p align="center">
-  <a href="https://insomnia.rest/run/?label=Mob2ConLabs%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fvisitors-api%2Freadme%2FInsomnia.json%3Ftoken%3DAACEGMEPFPUEI3IOGM4WMXC7QSNOO" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+  <a href="https://insomnia.rest/run/?label=Mob2Con%20Labs%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fvisitors-api%2Fmain%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
 
 ---
