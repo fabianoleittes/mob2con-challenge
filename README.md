@@ -26,6 +26,16 @@ Mob2ConLabs - é um API Restful feita como teste para a vaga de backend na Mob2C
 
 ## ⚙️ Funcionalidades
 
+- [x] RESTful API
+- [x] JSON Schema implementation
+- [x] RSpec testing
+- [x] Setup scripts
+- [x] Usage of http methods/verbs
+- [x] Structured endpoints
+- [x] Return appropriate status code
+- [x] JWT Token Based Authentication
+- [x] API versioning
+- [x] API subdomain
 - [x] O administrador pode gerenciar Redes Varejistas (crud) para dar entrada em novos clientes.
 
 - [x] O administrador pode pesquisar redes varejistas pelo nome para ter acesso as informações.
@@ -74,8 +84,49 @@ $ docker-compose run up
 
 # O servidor inciará na porta:3000 - acesse http://api.dev.local:3000 
 
-
 ```
+
+## Endpoints
+
+### Login
+
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/signup              | POST | Create user      |
+| /v1/auth/login          | POST | Generate token   |
+
+### Retail Chains
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/admin/retail_chains | POST | Create Retail Chains      |
+| /v1/admin/retail_chains      | GET  | Return all Retail Chains |
+| /v1/admin/retail_chains/:id  | PUT  | Update Retail Chain |
+| /v1/admin/retail_chains/:id  | GET  | Show Retail Chain |
+| /v1/admin/retail_chains/:id  | DELETE  | Destroy Retail Chains |
+
+### Visitors
+
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/admin/retail_chains/:id/visitors | POST | Create Visitor |
+| /v1/admin/retail_chains/:id/visitors      | GET  | Return all Visitors |
+| /v1/admin/retail_chains/:id/visitors:id  | PUT  | Update Visitor |
+| /v1/admin/retail_chains/:id/visitors/:id  | GET  | Show Visitor |
+| /v1/admin/retail_chains/:id/visitors/:id  | DELETE  | Destroy Visitor |
+
+### Visits
+
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/visitors/:id/visits | POST | Create Visits     |
+| /v1/visitors/:id/visits | GET  | Return all Visits |
+
+### Summaries
+
+| URL / ENDPOINT          | VERB | DESCRIPTION      |
+| ----------------------- | ---- | ---------------- |
+| /v1/retail_chains/summaries | GET | Retail Chain summaries |
+
 <p align="center">
   <a href="https://insomnia.rest/run/?label=Mob2ConLabs%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Ffabianoleittes%2Fvisitors-api%2Freadme%2FInsomnia.json%3Ftoken%3DAACEGMEPFPUEI3IOGM4WMXC7QSNOO" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
 </p>
