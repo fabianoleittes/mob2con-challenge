@@ -76,13 +76,14 @@ $ git clone https://github.com/fabianoleittes/visitors-api.git
 # Acesse a pasta do projeto no terminal/cmd
 $ cd visitors-api
 
-# Instale as dependências
-$ docker-compose run --rm api bundle install
-
-# Execute a aplicação em modo de desenvolvimento
-$ docker-compose run up
+# Instalando as dependências e Execute a aplicação em modo de desenvolvimento
+$ docker-compose up
 
 # O servidor inciará na porta:3000 - acesse http://api.dev.local:3000 
+
+
+# Rodando dos testes
+$ docker-compose run --rm api bundle exec rspec
 
 ```
 
