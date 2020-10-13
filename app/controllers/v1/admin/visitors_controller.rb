@@ -49,7 +49,8 @@ module V1
       def visitor_params
         params.permit(
           :name,
-          :retail_chain_id
+          :retail_chain_id,
+          :avatar
         )
       end
     end
