@@ -14,6 +14,10 @@ Rails.application.routes.draw do
       end
       post 'signup', to: 'users#create'
       post 'auth/login', to: 'auth#authenticate'
+
+      resources :retail_chains, only: %i[] do
+        get :summaries, to: 'retail_chains_summaries#index', on: :collection
+      end
     end
   end
 end
