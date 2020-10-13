@@ -42,7 +42,7 @@ Mob2ConLabs - é um API Restful feita como teste para a vaga de backend na Mob2C
 
 - [x] Usuário da rede pode registrar entradas e saidas de visitantes.
 
-- [ ] Usuário externo, não autenticado, pode ver o número total de redes e seus visitantes.
+- [x] Usuário externo, não autenticado, pode ver o número total de redes e seus visitantes.
 
 ---
 
