@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Auth', type: :request do
   describe 'POST /v1/auth/login' do
-    let!(:user) { create(:user) }
+    let(:user) { create(:user) }
     let(:headers) { valid_headers.except('Authorization') }
 
     context 'when a request is valid' do

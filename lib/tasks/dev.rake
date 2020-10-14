@@ -3,9 +3,7 @@
 namespace :dev do
   desc 'Create sample data for local development'
   task prime: ['db:prepare'] do
-    unless Rails.env.development?
-      raise 'This task can only be run in the development environment'
-    end
+    raise 'This task can only be run in the development environment' unless Rails.env.development?
 
     require 'factory_bot_rails'
     include FactoryBot::Syntax::Methods

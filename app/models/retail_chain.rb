@@ -2,7 +2,7 @@
 
 class RetailChain < ApplicationRecord
   include Filterable
-  
+
   validates :name, presence: true
   validates :cnpj, presence: true, uniqueness: { case_sensitive: false }
 

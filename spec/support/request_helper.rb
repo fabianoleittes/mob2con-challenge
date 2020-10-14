@@ -2,13 +2,11 @@
 
 module RequestHelper
   def json
-    (reparse_and_never_memoize_as_response_may_change = lambda do
-      JSON.parse(response.body)
-    end).call
+    JSON.parse(response.body)
   end
 
   def user
-    user ||= create(:user)
+    create(:user)
   end
 
   def token_generator(user_id, adapter = JsonWebTokenAdapter)
