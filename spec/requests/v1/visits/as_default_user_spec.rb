@@ -13,7 +13,7 @@ RSpec.describe 'Visits API', type: :request do
         post(
           "/v1/visitors/#{visitor.id}/visits",
           params: visit_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -29,7 +29,7 @@ RSpec.describe 'Visits API', type: :request do
         post(
           "/v1/visitors/#{visitor.id}/visits",
           params: visit_invalid_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
       it 'returns a 422 response' do
@@ -49,7 +49,7 @@ RSpec.describe 'Visits API', type: :request do
         patch(
           "/v1/visitors/#{visitor.id}/visits/#{visit.id}",
           params: visit_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -64,7 +64,7 @@ RSpec.describe 'Visits API', type: :request do
         patch(
           "/v1/visitors/#{visitor.id}/visits/#{visit.id}",
           params: visit_invalid_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
       it 'returns a 422 response' do

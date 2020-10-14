@@ -12,7 +12,7 @@ RSpec.describe 'RetailChain API', type: :request do
         post(
           '/v1/admin/retail_chains',
           params: retail_chains_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -26,7 +26,7 @@ RSpec.describe 'RetailChain API', type: :request do
         post(
           '/v1/admin/retail_chains',
           params: {},
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -43,7 +43,7 @@ RSpec.describe 'RetailChain API', type: :request do
       get(
         '/v1/admin/retail_chains',
         params: {},
-        headers: headers
+        headers: valid_headers
       )
     end
 
@@ -63,7 +63,7 @@ RSpec.describe 'RetailChain API', type: :request do
       get(
         "/v1/admin/retail_chains/#{retail_chain.id}",
         params: {},
-        headers: headers
+        headers: valid_headers
       )
     end
 
@@ -74,7 +74,7 @@ RSpec.describe 'RetailChain API', type: :request do
     end
 
     context 'when the record does not exist' do
-      before { get "/v1/admin/retail_chains/#{42}", params: {}, headers: headers }
+      before { get "/v1/admin/retail_chains/#{42}", params: {}, headers: valid_headers }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(:not_found)
@@ -98,7 +98,7 @@ RSpec.describe 'RetailChain API', type: :request do
         patch(
           "/v1/admin/retail_chains/#{retail_chain.id}",
           params: retail_chains_params,
-          headers: headers
+          headers: valid_headers
         )
 
         expect(response).to have_http_status(:ok)
@@ -112,7 +112,7 @@ RSpec.describe 'RetailChain API', type: :request do
         patch(
           "/v1/admin/retail_chains/#{retail_chain.id}",
           params: retail_chains_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -125,7 +125,7 @@ RSpec.describe 'RetailChain API', type: :request do
         delete(
           '/v1/admin/retail_chains/42',
           params: {},
-          headers: headers
+          headers: valid_headers
         )
         expect(response).to have_http_status(:not_found)
       end
@@ -136,7 +136,7 @@ RSpec.describe 'RetailChain API', type: :request do
         delete(
           "/v1/admin/retail_chains/#{retail_chain.id}",
           params: {},
-          headers: headers
+          headers: valid_headers
         )
         expect(response).to have_http_status(:no_content)
       end
