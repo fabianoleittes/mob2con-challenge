@@ -11,7 +11,7 @@ RSpec.describe 'Visitors API', type: :request do
         post(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors",
           params: visitor_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
 

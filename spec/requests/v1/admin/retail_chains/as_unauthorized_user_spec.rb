@@ -9,7 +9,7 @@ RSpec.describe 'RetailChain API', type: :request do
         post(
           '/v1/admin/retail_chains',
           params: retail_chains_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
 

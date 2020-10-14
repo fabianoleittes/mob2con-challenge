@@ -13,7 +13,7 @@ RSpec.describe 'Visitors API', type: :request do
         post(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors",
           params: visitor_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -27,7 +27,7 @@ RSpec.describe 'Visitors API', type: :request do
         post(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors",
           params: {},
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -44,7 +44,7 @@ RSpec.describe 'Visitors API', type: :request do
       get(
         "/v1/admin/retail_chains/#{retail_chain.id}/visitors",
         params: {},
-        headers: headers
+        headers: valid_headers
       )
     end
 
@@ -64,7 +64,7 @@ RSpec.describe 'Visitors API', type: :request do
       get(
         "/v1/admin/retail_chains/#{retail_chain.id}/visitors/#{visitor.id}",
         params: {},
-        headers: headers
+        headers: valid_headers
       )
     end
 
@@ -79,7 +79,7 @@ RSpec.describe 'Visitors API', type: :request do
         get(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors/42",
           params: {},
-          headers: headers
+          headers: valid_headers
         )
       end
 
@@ -105,7 +105,7 @@ RSpec.describe 'Visitors API', type: :request do
         patch(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors/#{visitor.id}",
           params: visitor_params,
-          headers: headers
+          headers: valid_headers
         )
 
         expect(response).to have_http_status(:ok)
@@ -119,7 +119,7 @@ RSpec.describe 'Visitors API', type: :request do
         patch(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors/#{visitor.id}",
           params: invalid_params.to_json,
-          headers: headers
+          headers: valid_headers
         )
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -132,7 +132,7 @@ RSpec.describe 'Visitors API', type: :request do
         delete(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors/42",
           params: {},
-          headers: headers
+          headers: valid_headers
         )
         expect(response).to have_http_status(:not_found)
       end
@@ -143,7 +143,7 @@ RSpec.describe 'Visitors API', type: :request do
         delete(
           "/v1/admin/retail_chains/#{retail_chain.id}/visitors/#{visitor.id}",
           params: {},
-          headers: headers
+          headers: valid_headers
         )
         expect(response).to have_http_status(:no_content)
       end
