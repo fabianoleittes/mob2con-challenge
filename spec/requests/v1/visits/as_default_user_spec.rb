@@ -32,6 +32,7 @@ RSpec.describe 'Visits API', type: :request do
           headers: valid_headers
         )
       end
+
       it 'returns a 422 response' do
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -57,6 +58,7 @@ RSpec.describe 'Visits API', type: :request do
         expect(response).to have_http_status(:ok)
       end
     end
+
     context 'with invalid data' do
       let(:visit_invalid_params) { attributes_for(:visit, entry_date: nil) }
 
@@ -67,10 +69,10 @@ RSpec.describe 'Visits API', type: :request do
           headers: valid_headers
         )
       end
+
       it 'returns a 422 response' do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 end
-

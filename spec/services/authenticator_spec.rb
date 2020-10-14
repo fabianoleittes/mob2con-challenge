@@ -22,7 +22,7 @@ RSpec.describe Authenticator do
     end
 
     def user
-      user ||= create(:user)
+      create(:user)
     end
 
     def build_auth(email, password)

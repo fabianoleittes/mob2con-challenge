@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Visits API as :admin', type: :request do
-  let!(:user) { create(:user, :be_admin) }
+  let(:user) { create(:user, :be_admin) }
   let!(:visitor) { create(:visitor) }
 
   describe 'POST /v1/visitors/:visitor_id/visits' do
@@ -33,6 +33,7 @@ RSpec.describe 'Visits API as :admin', type: :request do
           headers: valid_headers
         )
       end
+
       it 'returns a 422 response' do
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -58,6 +59,7 @@ RSpec.describe 'Visits API as :admin', type: :request do
         expect(response).to have_http_status(:ok)
       end
     end
+
     context 'with invalid data' do
       let(:visit_invalid_params) { attributes_for(:visit, entry_date: nil) }
 
@@ -68,10 +70,10 @@ RSpec.describe 'Visits API as :admin', type: :request do
           headers: valid_headers
         )
       end
+
       it 'returns a 422 response' do
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end
 end
-

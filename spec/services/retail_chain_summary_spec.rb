@@ -8,13 +8,13 @@ RSpec.describe RetailChainSummary do
   let!(:first_visitor) { create(:visitor, retail_chain: first_retail_chain) }
   let!(:second_visitor) { create(:visitor, retail_chain: first_retail_chain) }
 
-  context '#process' do
+  describe '#process' do
     it 'returns total of the retail chains' do
       summary = described_class.process
       expect(summary[:total]).to eq(2)
     end
 
-    it 'returns :name, :cnpf and visitors name of each retail chain' do
+    it 'returns retail/visitors name of each retail chain' do
       summary = described_class.process
 
       first_retail_chain_summary = retail_chain_serializer(first_retail_chain)
