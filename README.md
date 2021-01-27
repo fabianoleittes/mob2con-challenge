@@ -1,26 +1,26 @@
 # Mob2ConLabs API
 
-![Tests & Linters](https://github.com/fabianoleittes/visitors-api/workflows/Tests%20&%20Linters/badge.svg?branch=main) [![Maintainability](https://api.codeclimate.com/v1/badges/e787fbfd8c282e658c2a/maintainability)](https://codeclimate.com/github/fabianoleittes/visitors-api/maintainability)
+![Tests & Linters](https://github.com/fabianoleittes/mob2con-challenge/workflows/Tests%20&%20Linters/badge.svg?branch=main) [![Maintainability](https://api.codeclimate.com/v1/badges/6b3d2fa66f0fb2408c63/maintainability)](https://codeclimate.com/github/fabianoleittes/mob2con-challenge/maintainability)
 
 
-<h4 align="center"> 
+<h4 align="center">
 	🚧  Mob2ConLabs API em construção 🚀 🚧
 </h4>
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-como-executar-o-projeto">Como executar</a> • 
+ <a href="#-como-executar-o-projeto">Como executar</a> •
  <a href="#-tecnologias">Tecnologias</a>
- • 
- <a href="#-autor">Autor</a> • 
+ •
+ <a href="#-autor">Autor</a> •
  <a href="#user-content--licença">Licença</a>
 </p>
 
 
 ## 💻 Sobre o projeto
 
-Mob2ConLabs - é um API Restful feita como teste para a vaga de backend na Mob2ConLabs.
+Mob2ConLabs - é um API Restful feita como teste para a vaga de backend engineer.
 
 ---
 
@@ -65,20 +65,20 @@ Este projeto é uma API Restful:
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 [docker](https://docs.docker.com/install/) e [docker compose](https://docs.docker.com/compose/install/)
- 
+
 #### 🎲 Rodando a API (servidor)
 
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/fabianoleittes/visitors-api.git
+$ git clone https://github.com/fabianoleittes/mob2con-challenge.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd visitors-api
+$ cd mob2con-challenge
 
 # Instalando as dependências e Execute a aplicação em modo de desenvolvimento
 $ docker-compose up --build
-# O servidor inciará na porta:3000 - acesse http://api.dev.local:3000 
+# O servidor inciará na porta:3000 - acesse http://api.dev.local:3000
 
 # Rodando dos testes
 $ docker-compose run --rm api bundle exec rspec
@@ -148,7 +148,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 -   **[ffaker](https://github.com/ffaker/ffaker)**
 -   **[Rack Cors](https://github.com/cyu/rack-cors)**
 
-> Veja o arquivo  [Gemfile](https://github.com/fabianoleittes/visitors-api/blob/main/Gemfile)
+> Veja o arquivo  [Gemfile](https://github.com/fabianoleittes/mob2con-challenge/blob/main/Gemfile)
 
 #### Utilitários
 
@@ -165,7 +165,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
  <sub><b>Fabiano Leite</b></sub></a>
  <br />
 
-[![Twitter Badge](https://img.shields.io/badge/-@fabianoleittes-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/fabianoleittes)](https://twitter.com/fabianoleittes) [![Linkedin Badge](https://img.shields.io/badge/-Fabiano-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fabianoleittes/)](https://www.linkedin.com/in/fabianoleittes/) 
+[![Twitter Badge](https://img.shields.io/badge/-@fabianoleittes-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/fabianoleittes)](https://twitter.com/fabianoleittes) [![Linkedin Badge](https://img.shields.io/badge/-Fabiano-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fabianoleittes/)](https://www.linkedin.com/in/fabianoleittes/)
 
 ---
 
