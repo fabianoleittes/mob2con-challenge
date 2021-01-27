@@ -3,54 +3,93 @@
 module V1
   module Admin
     class RetailChainsController < AdminsController
-      before_action :find_retail_chain, only: %i[show update destroy]
-
       def index
         @retail_chains = RetailChain.all.search_by_name(params)
-        json_response(@retail_chains)
+        respond_with_json(
+          RetailChainBlueprint.render(
+            @retail_chains,
+            root: :data
+          )
+        )
       end
 
       def show
-        json_response(@find_retail_chain)
+        find_retail_chain do |retailer|
+          respond_with_json(
+            RetailChainBlueprint.render(
+              retailer, root: :retail_chain
+            )
+          )
+        end
       end
 
       def create
-        @retail_chain = RetailChain.new(retail_chains_params)
-
-        if @retail_chain.save
-          json_response(@retail_chain, :created)
-        else
-          json_response(@retail_chain.errors, :unprocessable_entity)
-        end
+        save_retailer
       end
 
       def update
-        if @find_retail_chain.update(retail_chains_params)
-          json_response(@find_retail_chain, :ok)
-        else
-          json_response(@find_retail_chain.errors, :unprocessable_entity)
-        end
+        update_retailer
       end
 
       def destroy
-        if @find_retail_chain.destroy
-          render nothing: true, status: :no_content
-        else
-          json_response(@find_retail_chain, :not_found)
-        end
+        destroy_retailer
       end
 
       private
 
+      def save_retailer
+        build_retailer do |retailer|
+          if retailer.save
+            respond_with_json(
+              RetailChainBlueprint.render(
+                retailer, root: :retail_chain
+              ), :created
+            ) 
+          else
+            respond_with_errors(retailer)
+          end
+        end
+      end
+
+      def build_retailer
+        yield(RetailChain.new(retail_chains_params))
+      end
+
+      def update_retailer
+        find_retail_chain do |retailer|
+          if retailer.update(retail_chains_params)
+            respond_with_json(
+              RetailChainBlueprint.render(
+                retailer, root: :retail_chain
+              )
+            )
+          else
+            respond_with_errors(retailer)
+          end
+        end
+      end
+
+      def destroy_retailer
+        find_retail_chain do |retailer|
+          if retailer.destroy
+            render nothing: true, status: :no_content
+          else
+            respond_with_errors(retailer, :not_found)
+          end
+        end
+      end
+
       def find_retail_chain
-        @find_retail_chain ||= RetailChain.find(params[:id])
+        yield(RetailChain.find(params[:id]))
       end
 
       def retail_chains_params
-        params.permit(
-          :name,
-          :cnpj
-        )
+        params
+          .require(:retail_chain)
+          .permit(
+            :name,
+            :cnpj
+          )
       end
     end
   end
