@@ -14,7 +14,7 @@ FactoryBot.define do
     password {}
   end
 
-  trait :be_admin do
+  trait :admin do
     admin { true }
   end
 end
