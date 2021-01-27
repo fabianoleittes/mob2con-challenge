@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.2'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt', '~> 2.2', '>= 2.2.2'
@@ -15,6 +15,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'cpf_cnpj', '~> 0.5.0'
 gem 'rack-attack', '~> 6.3', '>= 6.3.1'
 gem 'rack-cors'
+gem 'blueprinter', '~> 0.25.2'
+gem 'oj', '~> 3.11', '>= 3.11.1'
 
 group :development, :test do
   gem 'awesome_print', '~> 1.8'
