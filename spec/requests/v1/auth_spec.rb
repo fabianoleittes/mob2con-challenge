@@ -17,7 +17,7 @@ RSpec.describe 'Auth', type: :request do
       end
 
       it 'returns an auth token' do
-        expect(json['auth_token']).not_to be_nil
+        expect(json_response['auth_token']).not_to be_nil
       end
     end
 
@@ -29,22 +29,24 @@ RSpec.describe 'Auth', type: :request do
       end
 
       it 'returns a failure message' do
-        expect(json['message']).to match(/Invalid credentials/)
+        expect(json_response['message']).to match(/Invalid credentials/)
       end
     end
   end
 
   def valid_credentials
-    {
+    { user: {
       email: user.email,
       password: user.password
-    }.to_json
+    }
+  }.to_json
   end
 
   def invalid_credentials
-    {
+    { user: {
       email: FFaker::Internet.email,
       password: FFaker::Internet.password
+    }
     }.to_json
   end
 end

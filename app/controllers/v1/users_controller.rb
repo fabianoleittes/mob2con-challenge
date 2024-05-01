@@ -6,21 +6,23 @@ module V1
       @user = User.new(user_params)
 
       if @user.save
-        json_response(@user, :created)
+        respond_with_json(@user, :created)
       else
-        json_response(@user.errors, :unprocessable_entity)
+        respond_with_json(@user.errors, :unprocessable_entity)
       end
     end
 
     private
 
     def user_params
-      params.permit(
-        :name,
-        :email,
-        :password,
-        :password_confirmation
-      )
+      params
+        .require(:user)
+        .permit(
+          :name,
+          :email,
+          :password,
+          :password_confirmation
+        )
     end
   end
 end

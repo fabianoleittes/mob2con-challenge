@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Visits API as :admin', type: :request do
-  let(:user) { create(:user, :be_admin) }
+  let(:user) { create(:user, :admin) }
   let!(:visitor) { create(:visitor) }
 
   describe 'POST /v1/visitors/:visitor_id/visits' do
     context 'with valid data' do
-      let(:visit_params) { attributes_for(:visit) }
+      let(:visit_params) { { visit: attributes_for(:visit) } }
 
       before do
         post(
@@ -24,7 +24,7 @@ RSpec.describe 'Visits API as :admin', type: :request do
     end
 
     context 'with invalid data' do
-      let(:visit_invalid_params) { attributes_for(:visit, entry_date: nil) }
+      let(:visit_invalid_params) { { visit: attributes_for(:visit, entry_date: nil) } }
 
       before do
         post(
@@ -61,7 +61,7 @@ RSpec.describe 'Visits API as :admin', type: :request do
     end
 
     context 'with invalid data' do
-      let(:visit_invalid_params) { attributes_for(:visit, entry_date: nil) }
+      let(:visit_invalid_params) { { visit: attributes_for(:visit, entry_date: nil) } }
 
       before do
         patch(

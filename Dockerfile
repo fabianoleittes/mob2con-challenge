@@ -3,7 +3,7 @@ FROM ruby:$RUBY_VERSION
 
 ARG DEBIAN_FRONTEND=noninteractive
 
-ARG NODE_VERSION=12
+ARG NODE_VERSION=14
 RUN curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -
 
 RUN apt-get update && apt-get install -y \

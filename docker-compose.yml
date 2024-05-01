@@ -5,10 +5,10 @@ services:
     build:
       context: .
       args:
-        - RUBY_VERSION=2.7.1
+        - RUBY_VERSION=2.7.2
         - BUNDLE_JOBS=15
         - BUNDLE_RETRY=2
-        - NODE_VERSION=12
+        - NODE_VERSION=14
         - INSTALL_PG_CLIENT=true
         - UID=500
         - GID=500
@@ -22,6 +22,7 @@ services:
       - .:/app:cached
       - gems:/gems
       - rails_cache:/app/tmp/cache
+    env_file: .env
     ports: 
       - "3000:3000"
     user: ruby
@@ -30,7 +31,7 @@ services:
     depends_on:
       - postgres
   postgres:
-    image: postgres:12
+    image: postgres:13.1-alpine
     ports:
       - "5432:5432"
     environment:

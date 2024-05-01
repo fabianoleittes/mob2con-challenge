@@ -3,7 +3,7 @@
 module V1
   class RetailChainsSummariesController < BaseController
     def index
-      json_response(RetailChainSummary.process)
+      respond_with_json(RetailChainSummary.process)
     end
   end
 end

@@ -3,55 +3,103 @@
 module V1
   module Admin
     class VisitorsController < AdminsController
-      before_action :find_visitor, only: %i[show update destroy]
+      before_action :find_retail_chain
 
       def index
         @visitors = Visitor.all.search_by_name(params)
-        json_response(@visitors)
+        respond_with_json(
+          VisitorBlueprint.render(
+            @visitors,
+            root: :data
+          )
+        )
       end
 
       def show
-        json_response(@find_visitor)
+        find_visitor do |visitor|
+          respond_with_json(
+            VisitorBlueprint.render(
+              visitor,
+              root: :visitor
+            )
+          )
+        end
       end
 
       def create
-        @visitor = Visitor.new(visitor_params)
-
-        if @visitor.save
-          json_response(@visitor, :created)
-        else
-          json_response(@visitor.errors, :unprocessable_entity)
-        end
+        save_visitor
       end
 
       def update
-        if @find_visitor.update(visitor_params)
-          json_response(@find_visitor, :ok)
-        else
-          json_response(@find_visitor.errors, :unprocessable_entity)
-        end
+        update_visitor
       end
 
       def destroy
-        if @find_visitor.destroy
-          render nothing: true, status: :no_content
-        else
-          json_response(@find_visitor, :not_found)
-        end
+        destroy_visitor
       end
 
       private
 
+      def build_visitor
+        yield(Visitor.new(visitor_params))
+      end
+
+      def save_visitor
+        build_visitor do |visitor|
+          if visitor.save
+            respond_with_json(
+              VisitorBlueprint.render(
+                visitor,
+                root: :visitor
+              ), :created
+            )
+          else
+            respond_with_errors(visitor)
+          end
+        end
+      end
+
+      def update_visitor
+        find_visitor do |visitor|
+          if visitor.update(visitor_params)
+            respond_with_json(
+              VisitorBlueprint.render(
+                visitor,
+                root: :visitor
+              )
+            )
+          else
+            respond_with_errors(visitor)
+          end
+        end
+      end
+
+      def destroy_visitor
+        find_visitor do |visitor|
+          if visitor.destroy
+            render nothing: true, status: :no_content
+          else
+            respond_with_errors(visitor, :not_found)
+          end
+        end
+      end
+
       def find_visitor
-        @find_visitor ||= Visitor.find(params[:id])
+        yield(Visitor.find(params[:id]))
+      end
+
+      def find_retail_chain
+        @find_retail_chain ||= RetailChain.find(params[:retail_chain_id])
       end
 
       def visitor_params
-        params.permit(
-          :name,
-          :retail_chain_id,
-          :avatar
-        )
+        params
+          .require(:visitor)
+          .permit(
+            :name,
+            :retail_chain_id,
+            :avatar
+          )
       end
     end
   end
