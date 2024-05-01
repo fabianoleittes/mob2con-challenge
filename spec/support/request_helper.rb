@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 module RequestHelper
-  def json
-    JSON.parse(response.body)
-  end
-
-  def user
-    create(:user)
+  def json_response(symbolize_keys: false)
+    json = JSON.parse(response.body)
+    symbolize_keys ? json.deep_symbolize_keys : json
+  rescue StandardError
+    {}
   end
 
   def token_generator(user_id, adapter = JsonWebTokenAdapter)
@@ -29,6 +28,10 @@ module RequestHelper
       'Authorization' => nil,
       'Content-Type' => 'application/json'
     }
+  end
+
+  def user
+    create(:user)
   end
 end
 

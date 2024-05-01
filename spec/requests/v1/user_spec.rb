@@ -22,7 +22,7 @@ RSpec.describe 'Users API', type: :request do
       before do
         post(
           '/v1/signup',
-          params: {},
+          params: invalid_params.to_json,
           headers: { 'Content-Type' => 'application/json' }
         )
       end
@@ -34,6 +34,10 @@ RSpec.describe 'Users API', type: :request do
   end
 
   def user_params
-    attributes_for(:user)
+    { user: attributes_for(:user) }
+  end
+
+  def invalid_params
+    { user: attributes_for(:user, email: '') }
   end
 end

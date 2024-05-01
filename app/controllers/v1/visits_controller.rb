@@ -8,18 +8,18 @@ module V1
       @visit = @find_visitor.visits.new(visit_params)
 
       if @visit.save
-        json_response(@visit, :created)
+        respond_with_json(@visit, :created)
       else
-        json_response(@visit.errors, :unprocessable_entity)
+        respond_with_json(@visit.errors, :unprocessable_entity)
       end
     end
 
     def update
       find_visit do |visit|
         if visit.update(visit_params)
-          json_response(visit, :ok)
+          respond_with_json(visit, :ok)
         else
-          json_response(visit.errors, :unprocessable_entity)
+          respond_with_json(visit.errors, :unprocessable_entity)
         end
       end
     end
@@ -27,8 +27,7 @@ module V1
     private
 
     def find_visit
-      visit = Visit.find(params[:id])
-      yield(visit)
+      yield(Visit.find(params[:id]))
     end
 
     def find_visitor
